@@ -50,12 +50,16 @@ function crunchify_script_add_body() {
 // Load iframe convocatorias
 add_action('genesis_after_header', 'iframe_load');
 function iframe_load() {
-      echo '<div class="iframe-load">
+      echo '
+
+      <div class="header-ads"><img src="http://www.fortgroupinc.com/sites/default/files/portfolio_images/samsungawd_banner728_webMarketing.jpg" /></div>
+
+      <div class="iframe-load">
 
 			<div class="menu-wrap">
 				
-				<iframe width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" style="width: calc(100% - 120px); height: calc(100% - 120px); overflow: scroll"
-				   src="http://proyectos.inei.gob.pe/convocatorias/2014/convoca/ficha.asp?nocache=0.15159232774749398&id=1551&ape_pat=wege&ape_mat=egwgeweg&nombres=weg&dni=53235235&txtFecEmi=01/01/1950">
+				<iframe id="iframe-ajax-load" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" style="width: calc(100% - 80px); height: calc(100% - 120px); overflow: scroll"
+				   src="">
 				</iframe>
 
 				

@@ -9,13 +9,15 @@
  * http://www.codrops.com
  */
  
-(function($) { $(document).ready( function() { $('.navbar-header').on('click','button',function(e) { e.preventDefault(); var menuName = $(this).data('target'); $(menuName).slideToggle(); }); var menuName = $('.navbar-header button').data('target'); $(menuName).slideUp(); }); })(jQuery); 
+(function($) { $(document).ready( function() { $('.navbar-header').on('click','button',function(e) { e.preventDefault(); var menuName = $(this).data('target'); 
+
+	$(menuName).slideToggle(); }); var menuName = $('.navbar-header button').data('target'); $(menuName).slideUp(); }); })(jQuery); 
  
 (function() {
 
 	var bodyEl = document.body,
 		content = document.querySelector( '.content-wrap' ),
-		openbtn = document.getElementById( 'open-button' ),
+		openbtn = $('.iframe-button')[0];
 		closebtn = document.getElementById( 'close-button' ),
 		isOpen = false,
 
@@ -58,6 +60,9 @@
 			}, 300 );
 		}
 		else {
+			iframe_src = $('.iframe-button').val();
+			//alert(iframe_src);
+			$("#iframe-ajax-load").attr("src", iframe_src);
 			classie.add( bodyEl, 'show-menu' );
 			// animate path
 			path.animate( { 'path' : pathOpen }, 400, mina.easeinout, function() { isAnimating = false; } );
@@ -65,6 +70,10 @@
 		isOpen = !isOpen;
 	}
 
+
+
 	init();
+
+
 
 })();
