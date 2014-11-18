@@ -16,7 +16,7 @@
 (function() {
 
 	var bodyEl = document.body,
-		content = document.querySelector( '.content-wrap' ),
+		content = document.querySelector( '.content' ),
 		openbtn = $('.iframe-button')[0];
 		closebtn = document.getElementById( 'close-button' ),
 		isOpen = false,
@@ -51,6 +51,7 @@
 		if( isAnimating ) return false;
 		isAnimating = true;
 		if( isOpen ) {
+			$("#iframe-ajax-load").attr("src", "");
 			classie.remove( bodyEl, 'show-menu' );
 			// animate path
 			setTimeout( function() {
@@ -61,7 +62,6 @@
 		}
 		else {
 			iframe_src = $('.iframe-button').val();
-			//alert(iframe_src);
 			$("#iframe-ajax-load").attr("src", iframe_src);
 			classie.add( bodyEl, 'show-menu' );
 			// animate path

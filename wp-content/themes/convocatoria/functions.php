@@ -50,17 +50,40 @@ function crunchify_script_add_body() {
 // Load iframe convocatorias
 add_action('genesis_after_header', 'iframe_load');
 function iframe_load() {
+
+
+$ip= $_SERVER['REMOTE_ADDR']; 
+
+if (($ip == '181.177.234.130') or ($ip == '127.0.0.1'))  { 
+	echo '<div class="header-ads"><img src="http://drive.google.com/uc?export=view&amp;id=0B3A_OYLiO9cCWXNkNC1hekxMX0k" /></div>';
+}
+else{ 
+      echo '<div class="header-ads">
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Convocatoria.pe 728x90 -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-1445607604292298"
+     data-ad-slot="3618025566"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+      </div>';
+} 
+
+
       echo '
 
-      <div class="header-ads"><img src="http://www.fortgroupinc.com/sites/default/files/portfolio_images/samsungawd_banner728_webMarketing.jpg" /></div>
+
+
 
       <div class="iframe-load">
 
 			<div class="menu-wrap">
 				
-				<iframe id="iframe-ajax-load" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" style="width: calc(100% - 80px); height: calc(100% - 120px); overflow: scroll"
-				   src="">
-				</iframe>
+		<iframe id="iframe-ajax-load" src="" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" style="width: calc(100% - 80px); height: calc(100% - 120px); overflow: scroll"></iframe>
 
 				
 				<button class="close-button" id="close-button">Close Menu</button>
