@@ -2,6 +2,9 @@
 // Start the engine
 require_once( get_template_directory() . '/lib/init.php' );
 
+require_once(TEMPLATEPATH.'/lib/init.php');
+require_once(STYLESHEETPATH.'/lib/init.php');
+
 // Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'Genesis Sample Theme' );
 define( 'CHILD_THEME_URL', 'http://www.studiopress.com/' );
@@ -150,3 +153,9 @@ add_action('genesis_comment_form', 'genesis_fb_comments');
 function genesis_fb_comments() {
 	echo '<div id="respond" class="comment-respond"><div class="fb-comments" data-href="'.get_permalink().'" data-width="100%" data-numposts="5" data-colorscheme="light"></div></div>';
 }
+
+
+
+// ADMIN
+
+
