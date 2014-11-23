@@ -18,7 +18,7 @@ function shortcode_iframe_load( $atts, $content = null ) {
     extract(shortcode_atts(array(
         'link'      => '#',
     ), $atts));
-	$out = "<button id='iframe_".get_the_ID()."' type='button' onclick='iframe_load(this.id)' class=\"btn btn-link iframe-button\" value=\"" .$link. "\">" .do_shortcode($content). "</button>";
+	$out = "<button id='iframe_".get_the_ID()."' type='button' onclick='iframe_load(this.id)' class=\"btn btn-link iframe-button\" value=\"" .$link. "\">" .do_shortcode($content). "</button>  <a class='share-entry' href='#'>COMPARTIR</a>";
     return $out;
 }
 add_shortcode('iframe_load', 'shortcode_iframe_load');

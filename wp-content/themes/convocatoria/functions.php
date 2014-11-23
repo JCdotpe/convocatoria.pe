@@ -15,16 +15,25 @@ function sample_viewport_meta_tag() {
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0"/>';
 }
 
+// remove css
+remove_action( 'genesis_meta', 'genesis_load_stylesheet' );
+
 // Add bootstrap css
 add_action( 'wp_enqueue_scripts', 'bootstrap_style_sheet' );
 function bootstrap_style_sheet() {
-	wp_enqueue_style( 'custom-stylesheet', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css', array(), PARENT_THEME_VERSION );
+	wp_enqueue_style( 'bootstrap-stylesheet', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css', array(), PARENT_THEME_VERSION );
+}
+
+// Add style.css
+add_action( 'wp_enqueue_scripts', 'main_style_sheet' );
+function main_style_sheet() {
+	wp_enqueue_style( 'main-stylesheet', CHILD_URL .'/style.css', array(), PARENT_THEME_VERSION );
 }
 
 // Add font awesome css
 add_action( 'wp_enqueue_scripts', 'font_awesome_style_sheet' );
 function font_awesome_style_sheet() {
-	wp_enqueue_style( 'custom-stylesheet', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), PARENT_THEME_VERSION );
+	wp_enqueue_style( 'font-awesome-stylesheet', '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), PARENT_THEME_VERSION );
 }
 
 // Remove js default
