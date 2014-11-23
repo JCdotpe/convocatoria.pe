@@ -57,7 +57,7 @@ function iframe_load() {
 
 $ip= $_SERVER['REMOTE_ADDR']; 
 
-if (($ip == '181.177.234.130') or ($ip == '127.0.0.1'))  { 
+if (($ip == '181.177.234.130') or ($ip == '127.0.0.1') or ($ip == '190.113.213.149') or ($ip == 'localhost') or ($ip == '::1') )  { 
 	echo '<div class="header-ads"><img src="http://drive.google.com/uc?export=view&amp;id=0B3A_OYLiO9cCWXNkNC1hekxMX0k" /></div>';
 }
 else{ 
@@ -89,7 +89,7 @@ else{
 		<iframe id="iframe-ajax-load" src="" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" style="width: calc(100% - 80px); height: calc(100% - 120px); overflow: scroll"></iframe>
 
 				
-				<button class="close-button" id="close-button">Close Menu</button>
+				<button class="close-button" id="close-button" onclick="close_menu()">Close Menu</button>
 				<div class="morph-shape" id="morph-shape" data-morph-open="M-1,0h101c0,0,0-1,0,395c0,404,0,405,0,405H-1V0z">
 					<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
 						<path d="M-1,0h101c0,0-97.833,153.603-97.833,396.167C2.167,627.579,100,800,100,800H-1V0z"/>
@@ -137,15 +137,8 @@ if ( !is_page() ) {
 	return $post_info;
 }}
 
-// Add support for 3-column footer widgets
-add_theme_support( 'genesis-footer-widgets', 3 );
-
-// Customize Genesis Footer 
-remove_action( 'genesis_footer', 'genesis_do_footer' );
-
 // Remove the post meta function
 remove_action('genesis_entry_footer', 'genesis_post_meta');
-
 
 // Facebook comments
 remove_action('genesis_comment_form', 'genesis_do_comment_form');
@@ -154,6 +147,17 @@ function genesis_fb_comments() {
 	echo '<div id="respond" class="comment-respond"><div class="fb-comments" data-href="'.get_permalink().'" data-width="100%" data-numposts="5" data-colorscheme="light"></div></div>';
 }
 
+add_filter( 'genesis_footer_backtotop_text', 'sp_footer_backtotop_text' );
+function sp_footer_backtotop_text($backtotop) {
+	$backtotop = '[footer_backtotop text="a Return to Top"]';
+	return $backtotop;
+}
+
+
+add_filter( 'genesis_footer_creds_text', 'sp_footer_creds_text' );
+function sp_footer_creds_text() {
+	echo '<div class="creds"><p><a href="#" class="top">Subir &uarr;</a></p></div>';
+}
 
 
 // ADMIN

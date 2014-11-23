@@ -8,80 +8,62 @@
  * Copyright 2014, Codrops
  * http://www.codrops.com
  */
+
+ $( document ).ready(function() {
+ 	contentHeader = document.querySelector( '.site-header' );
+ 	contentAds = document.querySelector( '.header-ads' );
+
+	contentHeader.addEventListener( 'click', function(ev) {
+		var target = ev.target;
+		if ($('body').hasClass('open-iframe')) {
+			close_menu();
+		}
+	});
+
+
+	contentAds.addEventListener( 'click', function(ev) {
+		var target = ev.target;
+		if ($('body').hasClass('open-iframe')) {
+			close_menu();
+		}
+	});
+
+
+});
+
+function close_menu(){
+
+	$('body').removeClass('open-iframe');
+	var bodyEl = document.body;
+	$("#iframe-ajax-load").attr("src", "");
+	classie.remove( bodyEl, 'show-menu' );
+	setTimeout( function() {
+		path.attr( 'd', initialPath );
+		isAnimating = false; 
+	}, 300 );
+
+}
+
+
+function iframe_load(id_button){
+
+	var bodyEl = document.body;
+	morphEl = document.getElementById( 'morph-shape' );
+	s = Snap( morphEl.querySelector( 'svg' ) );
+	path = s.select( 'path' );
+	pathOpen = morphEl.getAttribute( 'data-morph-open' );
+	initialPath = this.path.attr('d');
+
+	iframe_src = $("#"+id_button+"").val();
+	$("#iframe-ajax-load").attr("src", iframe_src);
+	classie.add( bodyEl, 'show-menu' );
+	path.animate( { 'path' : pathOpen }, 400, mina.easeinout, function() { isAnimating = false; } );
+	$('body').addClass('open-iframe');
+
+}
  
+
 (function($) { $(document).ready( function() { $('.navbar-header').on('click','button',function(e) { e.preventDefault(); var menuName = $(this).data('target'); 
 
 	$(menuName).slideToggle(); }); var menuName = $('.navbar-header button').data('target'); $(menuName).slideUp(); }); })(jQuery); 
  
-
-
-
-(function() {
-
-	var bodyEl = document.body,
-		content = document.querySelector( '.site-container' ),
-		openbtn = $('.iframe-button')[0],
-		closebtn = document.getElementById( 'close-button' ),
-		isOpen = false,
-
-		morphEl = document.getElementById( 'morph-shape' ),
-		s = Snap( morphEl.querySelector( 'svg' ) );
-		path = s.select( 'path' );
-		initialPath = this.path.attr('d'),
-		pathOpen = morphEl.getAttribute( 'data-morph-open' ),
-		isAnimating = false;
-
-	function init() {
-		initEvents();
-	}
-
-	function initEvents() {
-		openbtn.addEventListener( 'click', toggleMenu );
-		if( closebtn ) {
-			closebtn.addEventListener( 'click', toggleMenu );
-		}
-
-		// close the menu element if the target it´s not the menu element or one of its descendants..
-		content.addEventListener( 'click', function(ev) {
-			var target = ev.target;
-			if( isOpen && target !== openbtn ) {
-				toggleMenu();
-			}
-		} );
-	}
-
-	function toggleMenu() {
-		if( isAnimating ) return false;
-		isAnimating = true;
-		if( isOpen ) {
-			$("#iframe-ajax-load").attr("src", "");
-			classie.remove( bodyEl, 'show-menu' );
-			// animate path
-			setTimeout( function() {
-				// reset path
-				path.attr( 'd', initialPath );
-				isAnimating = false; 
-			}, 300 );
-		}
-		else {
-			iframe_src = $(this).val();
-			alert(iframe_src);
-			$("#iframe-ajax-load").attr("src", iframe_src);
-			classie.add( bodyEl, 'show-menu' );
-			// animate path
-			path.animate( { 'path' : pathOpen }, 400, mina.easeinout, function() { isAnimating = false; } );
-		}
-		isOpen = !isOpen;
-	}
-
-
-
-	init();
-
-
-
-})();
-
-
-
-
