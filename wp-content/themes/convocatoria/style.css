@@ -1600,12 +1600,17 @@ Media Queries
 	background: #f5f5f5;
 }
 
+.entry-time {
+	font-style: italic;
+}
+
 .entry-time, .entry-categories{
 	display: inline-block;
 }
 
 .entry-categories a{
 	border: 0;
+	color: #c74b3f;
 }
 
 /* Load Iframe */
