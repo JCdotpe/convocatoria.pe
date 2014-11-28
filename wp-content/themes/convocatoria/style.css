@@ -1740,6 +1740,7 @@ Media Queries
 	padding: 0;
 	color: #c74b3f;
 	vertical-align: top;
+	font-weight: bold;
 }
 
 .share-entry{display: inline-block;
