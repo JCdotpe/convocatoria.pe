@@ -1739,7 +1739,9 @@ Media Queries
 .iframe-button {
 	padding: 0;
 	color: #c74b3f;
-	vertical-align: baseline;
+	vertical-align: top;
 }
 
-.share-entry{margin-left: 10px}
+.share-entry{display: inline-block;
+	margin-left: 10px}
+

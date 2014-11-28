@@ -18,7 +18,7 @@ function shortcode_iframe_load( $atts, $content = null ) {
     extract(shortcode_atts(array(
         'link'      => '#',
     ), $atts));
-	$out = "<button id='iframe_".get_the_ID()."' type='button' onclick='iframe_load(this.id)' class=\"btn btn-link iframe-button\" value=\"" .$link. "\">" .do_shortcode($content). "</button>  <a class='share-entry' href='#'>COMPARTIR</a>";
+	$out = "<button id='iframe_".get_the_ID()."' type='button' onclick='iframe_load(this.id)' class=\"btn btn-link iframe-button\" value=\"" .$link. "\">" .do_shortcode($content). "</button>  <div class='share-entry'><script src='//platform.linkedin.com/in.js' type='text/javascript'> lang: es_ES</script><script type='IN/Share' data-url='".get_permalink()."' data-counter='right'></script>  <iframe src='//www.facebook.com/plugins/share_button.php?href=".get_permalink()."&amp;layout=button_count&amp;appId=370348396476720' scrolling='no' frameborder='0' style='border:none; overflow:hidden; height:20px; width:112px ' allowTransparency='true'></iframe>  <script src='https://apis.google.com/js/platform.js' async defer> {lang: 'es'}</script><div class='g-plus' data-action='share' data-annotation='bubble'></div>  <a class='twitter-share-button' href='https://twitter.com/share' data-via='convocatoriape'>Tweet</a><script type='text/javascript'>window.twttr=(function(d,s,id){var t,js,fjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)){return}js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);return window.twttr||(t={_e:[],ready:function(f){t._e.push(f)}})}(document,'script','twitter-wjs'));</script></div>";
     return $out;
 }
 add_shortcode('iframe_load', 'shortcode_iframe_load');
