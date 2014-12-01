@@ -494,6 +494,7 @@ Structure and Layout
 	padding: 7px 0 7px 25%;
 	display: block;
 	transition: color .3s,background-color .3s;
+	text-transform: uppercase;
 }
 
 .sidebar.sidebar-secondary a:hover {
@@ -734,8 +735,8 @@ img.alignright,
 }
 
 .widget-title {
-	font-size: 16px;
-	font-size: 1.6rem;
+	font-size: 15px;
+	font-size: 1.5rem;
 	margin-bottom: 24px;
 	margin-bottom: 2.4rem;
 	text-transform: uppercase;
@@ -1155,12 +1156,6 @@ Content Area
 	margin-bottom: 2.6rem;
 }
 
-.entry-content ol,
-.entry-content ul {
-	margin-left: 40px;
-	margin-left: 4rem;
-}
-
 .entry-content ol li {
 	list-style-type: decimal;
 }
@@ -1464,7 +1459,7 @@ Site Footer
 }
 
 .site-footer a {
-	color: #fff;
+	color: #333;
 }
 
 
@@ -1660,8 +1655,10 @@ Media Queries
 	font-size: 16px !important;
 }
 
-.entry-meta i {
-	color: red;
+.entry-meta i,
+.listing-item span.date i,
+.listing-item span.entry-categories i {
+	color: #f15123;
 }
 
 /* Load Iframe */
@@ -1846,7 +1843,7 @@ Media Queries
 }
 
 .iframe-button i {
-	color: #e53a2b;
+	color: #f15123;
 }
 
 .share-entry {
@@ -1879,4 +1876,38 @@ Media Queries
 
 .ads-336x280 {
 	margin-bottom: 20px;
+}
+
+
+.sidebar-content-sidebar .content .display-posts-listing .listing-item {
+	clear: both;
+	padding: 30px 0;
+}
+
+
+.listing-item a.title {
+    font-size: 2.8rem;
+    color: #333;
+    display: block;
+    margin: 20px 0 1.6rem;
+}
+
+.listing-item span.date {
+color: #999;
+    display: inline-block;
+    font-size: 90%;
+}
+
+.sidebar-content-sidebar .content .display-posts-listing .listing-item .content {
+  border-bottom: 0.3125em solid #41b7d8;
+    border-radius: 0;
+    border-top: 1px solid #eee;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width: 100%;
+}
+
+.page .entry {
+	border-bottom: 0;
 }

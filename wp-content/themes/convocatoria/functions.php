@@ -51,6 +51,7 @@ function crunchify_script_add_body() {
       //wp_register_script( 'snap_svg', CHILD_URL .'/js/snap.svg-min.js' );
       wp_register_script( 'classie', CHILD_URL .'/js/classie.js' );
       wp_register_script( 'main', CHILD_URL .'/js/main.js' );
+
       wp_register_script( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' );
       wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', array( 'jquery' ), '1.11.1', false );
       wp_enqueue_script( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js', array( 'jquery' ), '3.3.1' );
@@ -201,6 +202,20 @@ function sp_footer_creds_text() {
 add_filter( 'genesis_search_text', 'sp_search_text' );
 function sp_search_text( $text ) {
 	return esc_attr( 'ej. cas' );
+}
+
+// Pagination text
+
+add_filter( 'genesis_prev_link_text', 'gt_review_prev_link_text' );
+function gt_review_prev_link_text() {
+        $prevlink = '&laquo; Anterior';
+        return $prevlink;
+}
+
+add_filter( 'genesis_next_link_text', 'gt_review_next_link_text' );
+function gt_review_next_link_text() {
+        $nextlink = 'Siguiente &raquo;';
+        return $nextlink;
 }
 
 
