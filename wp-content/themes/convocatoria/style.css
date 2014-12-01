@@ -70,7 +70,7 @@
 Imports
 ---------------------------------------------------------------------------------------------------- */
 
-@import url(//fonts.googleapis.com/css?family=Open+Sans);
+/*@import url(//fonts.googleapis.com/css?family=Open+Sans); */
 
 
 /*
@@ -142,8 +142,8 @@ html {
 }
 
 body {
-	background-color: #f0f1f3 !important;
-	color: #777;
+	background-color: #eee !important;
+	color: #333;
 	font-family: 'Helvetica Neue', Helvetica, 'Open Sans', Arial, sans-serif;
 	font-size: 14px;
 	font-weight: 300;
@@ -430,7 +430,8 @@ Structure and Layout
 .content-sidebar-sidebar .content-sidebar-wrap,
 .sidebar-content-sidebar .content-sidebar-wrap,
 .sidebar-sidebar-content .content-sidebar-wrap {
-	width: 920px;
+	width: calc(100% - 250px);
+	background: #eee;
 }
 
 .content-sidebar-sidebar .content-sidebar-wrap {
@@ -453,12 +454,15 @@ Structure and Layout
 .content-sidebar-sidebar .content,
 .sidebar-content-sidebar .content {
 	float: left;
+	border-radius: 0 15px 15px 15px;
+	background: #fff;
 }
 
 .content-sidebar-sidebar .content,
 .sidebar-content-sidebar .content,
 .sidebar-sidebar-content .content {
-	width: 520px;
+	width: calc(100% - 410px);
+    padding: 10px 0;
 }
 
 .full-width-content .content {
@@ -469,7 +473,7 @@ Structure and Layout
 
 .sidebar-primary {
 	float: right;
-	width: 360px;
+	width: 410px;
 }
 
 .sidebar-content .sidebar-primary,
@@ -481,7 +485,20 @@ Structure and Layout
 
 .sidebar-secondary {
 	float: left;
-	width: 180px;
+	width: 250px;
+	background: #fff;
+}
+
+.sidebar.sidebar-secondary a {
+	border-bottom: 0;
+	padding: 7px 0 7px 25%;
+	display: block;
+	transition: color .3s,background-color .3s;
+}
+
+.sidebar.sidebar-secondary a:hover {
+	background: #ff7;
+	text-decoration: 0;
 }
 
 .content-sidebar-sidebar .sidebar-secondary {
@@ -627,6 +644,18 @@ img.alignright,
 	width: 100%;
 }
 
+.sidebar-secondary .tagcloud a {
+    border-bottom: 0 none;
+    display: block;
+    padding: 7px 0 7px 25%;	
+    word-wrap: break-word;
+}
+
+
+.sidebar-content-sidebar .sidebar-secondary .tagcloud a {
+	font-size: 16px !important;
+}
+
 .widget_calendar td,
 .widget_calendar th {
 	text-align: center;
@@ -687,6 +716,19 @@ img.alignright,
 	color: #333;
 }
 
+.sidebar-secondary .widget-title {
+	padding: 7px 0 7px 25%;
+	margin-bottom: 0;
+}
+
+.sidebar-secondary .widget-title:hover {
+	background: #ff7;
+}
+
+.sidebar-secondary a:hover{
+	text-decoration: none;
+}
+
 .entry-title a:hover {
 	color: #666;
 }
@@ -698,6 +740,7 @@ img.alignright,
 	margin-bottom: 2.4rem;
 	text-transform: uppercase;
 	color: #333;
+	font-weight: 600;
 }
 
 .sidebar .widget-title a {
@@ -1071,25 +1114,28 @@ Content Area
 
 .entry {
 	position: relative;
-	padding: 40px 40px 24px;
-	padding: 4rem 4rem 2.4rem;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-	border-left: 1px solid #ddd;
+	padding: 20px 40px 20px 40px;
+	padding: 2rem 4rem 2rem 4rem; 
 	background: #fff;
 	margin-bottom: 30px;
+	border-bottom: 0.3125em solid #41b7d8;
 }
 
 .entry:first-child {
-	border-top: 0;
+	padding-top: 10px;
 }
 
 .entry-content{
 	padding-top: 5px;
+	font-size: 120%;
 }
 
 .entry-content a {
-	color: #c74b3f;
+	color: #00aeef;
+}
+
+.entry-content a i{
+	padding-left: 10px;
 }
 
 .entry-content a:hover {
@@ -1133,15 +1179,16 @@ Content Area
 }
 
 .entry-meta {
-	color: #777;
-	font-size: 14px;
-	font-size: 1.4rem;
-	position: absolute;
-	top: 20px;
+  	border-bottom: 0.08em solid #e5e5e5;
+    color: #e5e5e5;
+    font-size: 14rem;
+    font-size: 1.4rem;
+    padding-bottom: 0.5em;
 }
 
 .entry-meta a {
 	border-bottom: 1px solid #ddd;
+	color: #41b7d8;
 }
 
 .entry-header .entry-meta {
@@ -1177,6 +1224,7 @@ Content Area
 	font-size: 1.4rem;
 	margin: 40px 0;
 	margin: 4rem 0;
+	padding-left: 40px;
 }
 
 .archive-pagination li {
@@ -1212,9 +1260,7 @@ Content Area
 
 .comment-respond{
 	background: #fff;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-	border-left: 1px solid #ddd;
+	padding-bottom: 40px;
 }
 
 .comment-respond,
@@ -1320,8 +1366,14 @@ Sidebars
 }
 
 .sidebar .widget {
-	padding: 40px;
-	padding: 4rem;
+	padding: 20px;
+	padding: 2rem;
+}
+
+.sidebar.sidebar-secondary .widget {
+	padding: 20px 0;
+	padding: 2rem 0;
+	margin-right: 50px;
 }
 
 .sidebar .enews-widget {
@@ -1399,8 +1451,7 @@ Site Footer
 ---------------------------------------------------------------------------------------------------- */
 
 .site-footer {
-	background-color: #253b4b;
-	color: #fff;
+	color: #333;
 	font-size: 14px;
 	font-size: 1.4rem;
 	padding: 40px 0;
@@ -1596,27 +1647,53 @@ Media Queries
 
 /* Custom CSS */
 
-.site-inner{
-	background: #f5f5f5;
-}
-
-.entry-time {
-	font-style: italic;
-}
-
 .entry-time, .entry-categories{
 	display: inline-block;
+	color: #999;
+	font-size: 90%;
+	margin-right: 10px;
 }
 
 .entry-categories a{
 	border: 0;
-	color: #c74b3f;
+	color: #00aeef;
+	font-size: 16px !important;
+}
+
+.entry-meta i {
+	color: red;
 }
 
 /* Load Iframe */
 
 .iframe-load{
 	height: calc(100% - 17px);
+	width: 0;
+	position: relative;
+}
+
+.open-iframe .iframe-load{
+	border-top: 0.3125em solid #41b7d8;
+}
+
+.open-iframe .iframe-load {
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
+	top: 170px;
+}
+
+.open-iframe .header-ads{
+	background: #eee;
+    margin-top: 0;
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    z-index: 9999;
+}
+
+.open-iframe .site-inner {
+	  padding-top: 172px;
 }
 
 .close-button {
@@ -1641,7 +1718,7 @@ Media Queries
 	height: 100%;
 	top: 0;
 	left: 50%;
-	background: #c74b3f;
+	background: #00aeef;
 }
 
 .close-button::before {
@@ -1692,21 +1769,47 @@ Media Queries
 }
 
 .site-description{display: none;}
-.site-header, .site-header > .wrap { width: 100%; padding: 0; margin: 0; height: auto; /*This has to be auto for the navbar to be able to push content down */ position: relative; } /* using p:absolute on title-area to keep the navbar from going on top of logo in small screens Changed nav to come before title-area so that nav will be behind logo without changing navbar to p:absolute*/ .site-header .title-area { width:180px; padding: 0; margin: 0; float: left; height: 90px; position: absolute; z-index: 1000; } .site-header .site-title a { width: 180px; } .site-header nav { width: 100%; padding: 0; margin: 0; float: right; height: 100%; } .navbar-nav > li > a { padding-top: 15px; padding-top: 1.5rem; padding-bottom: 15px; padding-bottom: 1.5rem; } @media (max-width: 767px) { .navbar-nav > li > a { padding-top: 15px; padding-top: 1.5rem; padding-bottom: 15px; padding-bottom: 1.5rem; } } .navbar-default, .site-header { background: #fff; border-bottom: 1px solid #ddd; } .site-header .title-area a{ /* background: url(images/logo1.png) no-repeat left; */ } .navbar-toggle { margin-right: 25px; padding: 20px 10px; margin-top: 15px; margin-bottom: 8px; } 
+.site-header, .site-header > .wrap { width: 100%; padding: 0; margin: 0; height: auto; /*This has to be auto for the navbar to be able to push content down */ position: relative; } /* using p:absolute on title-area to keep the navbar from going on top of logo in small screens Changed nav to come before title-area so that nav will be behind logo without changing navbar to p:absolute*/ 
+
+.site-header .title-area { 
+	width:180px; padding: 0; margin: 0; float: left; height: 90px; position: fixed; z-index: 9999; 
+} 
+.site-header .site-title a { width: 180px; } 
+
+.navbar-nav > li > a { 
+	padding-top: 15px; 
+	padding-top: 1.5rem; 
+	padding-bottom: 15px; 
+	padding-bottom: 1.5rem; 
+} 
+
+@media (max-width: 767px) { .navbar-nav > li > a { padding-top: 15px; padding-top: 1.5rem; padding-bottom: 15px; padding-bottom: 1.5rem; } } .navbar-default, .site-header { background: #fff; border-bottom: 1px solid #ddd; } 
+
+.site-header .title-area a{ 
+	/* background: url(images/logo1.png) no-repeat left; */ 
+} 
+
+
+.navbar-toggle { 
+	margin-right: 25px;
+	padding: 20px 10px;
+	margin-top: 15px;
+	margin-bottom: 8px; 
+} 
 
 
 .site-header .title-area{ 
 	top: 10px;
 	left: 20px;
-	;}
+}
 
 
 .header-ads{
 	position: relative;
 	padding: 15px;
 	text-align: center;
-	border-bottom: 1px solid #ddd;
 	margin: 0 auto;
+	margin-top: 49px;
 }
 
 .site-title a, .site-title a:hover {
@@ -1714,7 +1817,7 @@ Media Queries
 }
 
 .navbar-default {
-    background-color: #253b4b !important;
+    background-color: #00aeef !important;
     border: 0 none !important;
 }
 
@@ -1738,11 +1841,42 @@ Media Queries
 
 .iframe-button {
 	padding: 0;
-	color: #c74b3f;
-	vertical-align: top;
-	font-weight: bold;
+	color: #00aeef;
+	vertical-align: bottom;
 }
 
-.share-entry{display: inline-block;
-	margin-left: 10px}
+.iframe-button i {
+	color: #e53a2b;
+}
 
+.share-entry {
+	display: inline-block;
+	margin-left: 20px;
+	color: #333;
+}
+
+.share-entry .share-text i {
+	color: #00aeef;
+}
+
+.share-entry .share-text {
+	margin-right: 10px;
+}
+
+.sidebar-ads li {
+	float: left;
+	width: 49%;
+}
+
+.sidebar-ads li.double {
+	float: none;
+	width: 100%;
+}
+
+.sidebar li.simple-right {
+	float: right;
+}
+
+.ads-336x280 {
+	margin-bottom: 20px;
+}

@@ -48,7 +48,7 @@ add_action('genesis_after_footer', 'crunchify_script_add_body');
 function crunchify_script_add_body() {
       wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js' );
       wp_register_script( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' );
-      wp_register_script( 'snap_svg', CHILD_URL .'/js/snap.svg-min.js' );
+      //wp_register_script( 'snap_svg', CHILD_URL .'/js/snap.svg-min.js' );
       wp_register_script( 'classie', CHILD_URL .'/js/classie.js' );
       wp_register_script( 'main', CHILD_URL .'/js/main.js' );
       wp_register_script( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' );
@@ -131,7 +131,7 @@ add_action('genesis_header', 'custom_do_nav', 5);
 function custom_do_nav() { wp_nav_menu(array( 
 	'menu' => 'Primary Navigation', 
 	'container' => 'nav', 
-	'container_class' => 'navbar navbar-default navbar-static-top', 
+	'container_class' => 'navbar navbar-default navbar-fixed-top', 
 	'menu_class' => 'nav navbar-nav navbar-right', 
 	'menu_id' => 'navigation', 
 	'items_wrap' => ' <div class="container-fluid"> <div class="navbar-header"> <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mry-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> </div> <div class="collapse navbar-collapse" id="mry-navbar-collapse-1"><ul id="%1$s" class="%2$s">%3$s</ul></div></div>'
@@ -142,9 +142,38 @@ function custom_do_nav() { wp_nav_menu(array(
 add_filter( 'genesis_post_info', 'sp_post_info_filter' );
 function sp_post_info_filter($post_info) {
 if ( !is_page() ) {
-	$post_info = '[post_categories before=""] [post_date] [post_edit]';
+	$post_info = '<i class="fa fa-bookmark"></i> [post_categories before=""] <i class="fa fa-clock-o"></i> [post_date] [post_edit]';
 	return $post_info;
 }}
+
+// Ads first post
+add_filter( 'genesis_before_entry_content', 'ads_unit_336x280' );
+function ads_unit_336x280(){
+	global $wp_query;
+	if( ($wp_query->current_post == 0) ) {
+
+
+			$ip= $_SERVER['REMOTE_ADDR']; 
+			if (($ip == '181.177.234.130') or ($ip == '127.0.0.1') or ($ip == '190.113.213.149') or ($ip == 'localhost') or ($ip == '::1') or ($ip == '179.7.79.119') )  { 
+				echo '<div class="ads-336x280"><img src="http://drive.google.com/uc?export=view&amp;id=0B3A_OYLiO9cCcnhYWHVMeFVSX2c" /></div>';
+			}
+			else{ 
+			      echo '<div class="ads-336x280">
+
+			<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- Convocatoria.pe 336x280 -->
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:336px;height:280px"
+			     data-ad-client="ca-pub-1445607604292298"
+			     data-ad-slot="8575628765"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+
+			      </div>';
+			} 
+	}
+}
 
 // Remove the post meta function
 remove_action('genesis_entry_footer', 'genesis_post_meta');
@@ -166,6 +195,12 @@ function sp_footer_backtotop_text($backtotop) {
 add_filter( 'genesis_footer_creds_text', 'sp_footer_creds_text' );
 function sp_footer_creds_text() {
 	echo '<div class="creds"><p><a href="#" class="top">Subir &uarr;</a></p></div>';
+}
+
+// Search Option
+add_filter( 'genesis_search_text', 'sp_search_text' );
+function sp_search_text( $text ) {
+	return esc_attr( 'ej. cas' );
 }
 
 
