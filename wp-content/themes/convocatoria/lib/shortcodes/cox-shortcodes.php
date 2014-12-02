@@ -689,7 +689,7 @@ function be_display_posts_shortcode( $atts ) {
 			$image = '<a class="image" href="' . get_permalink() . '">' . get_the_post_thumbnail( get_the_ID(), $image_size ) . '</a> ';
 			
 		if ( $include_date ) 
-			$date = '<span class="entry-categories"><i class="fa fa-bookmark"></i> <a rel="category tag" href="' .get_category_link(get_cat_ID($category)). '">' .$category. '</a></span> <span class="date"><i class="fa fa-clock-o"></i> ' . get_the_date( $date_format ) . '</span>';
+			$date = '<span class="date"><i class="fa fa-clock-o"></i> ' . get_the_date( $date_format ) . '</span>';
 			
 		if( $include_author )
 			/**
