@@ -372,7 +372,6 @@ add_shortcode('cox_img', 'cox_shortcode_img');
 
 
 
-
 // Display post
 // https://github.com/billerickson/display-posts-shortcode
  

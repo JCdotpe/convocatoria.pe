@@ -177,7 +177,11 @@ function ads_unit_336x280(){
 }
 
 // Remove the post meta function
-remove_action('genesis_entry_footer', 'genesis_post_meta');
+function be_post_meta_filter($post_meta) {
+	$post_meta = '<i class="fa fa-tags"></i> [post_tags before="Tags: "]';
+	return $post_meta;
+}
+add_filter('genesis_post_meta', 'be_post_meta_filter');
 
 // Facebook comments
 remove_action('genesis_comment_form', 'genesis_do_comment_form');
