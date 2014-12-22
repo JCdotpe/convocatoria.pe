@@ -67,7 +67,7 @@ function iframe_load() {
 
 $ip= $_SERVER['REMOTE_ADDR']; 
 
-if (($ip == '181.177.234.130') or ($ip == '127.0.0.1') or ($ip == '190.113.213.149') or ($ip == 'localhost') or ($ip == '::1') or ($ip == '179.7.79.119') )  { 
+if (($ip == '181.177.234.130') or ($ip == '127.0.0.1') or ($ip == '190.113.213.149') or ($ip == 'localhost') or ($ip == '::1') or ($ip == '179.7.87.183') )  { 
 	echo '<div class="header-ads"><img src="http://drive.google.com/uc?export=view&amp;id=0B3A_OYLiO9cCWXNkNC1hekxMX0k" /></div>';
 }
 else{ 
@@ -155,7 +155,7 @@ function ads_unit_336x280(){
 
 
 			$ip= $_SERVER['REMOTE_ADDR']; 
-			if (($ip == '181.177.234.130') or ($ip == '127.0.0.1') or ($ip == '190.113.213.149') or ($ip == 'localhost') or ($ip == '::1') or ($ip == '179.7.79.119') )  { 
+			if (($ip == '181.177.234.130') or ($ip == '127.0.0.1') or ($ip == '190.113.213.149') or ($ip == 'localhost') or ($ip == '::1') or ($ip == '179.7.87.183') )  { 
 				echo '<div class="ads-336x280"><img src="http://drive.google.com/uc?export=view&amp;id=0B3A_OYLiO9cCcnhYWHVMeFVSX2c" /></div>';
 			}
 			else{ 
