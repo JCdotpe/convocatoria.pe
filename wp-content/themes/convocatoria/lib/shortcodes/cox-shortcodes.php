@@ -12,6 +12,19 @@ function cox_contact( $atts, $content = null ) {
 }
 add_shortcode('contactform', 'cox_contact');
 
+// MEMBERS ONLY
+
+add_shortcode( 'members_only', 'members_only_shortcode' );
+function members_only_shortcode( $atts, $content = null ) 
+{
+    if ( is_user_logged_in() && !empty( $content ) && !is_feed() )
+    {
+        return $content;
+    }
+    
+    return 'Para ver este contenido tienes que identificarte.';
+}
+
 
 // SHORTCODE
 
