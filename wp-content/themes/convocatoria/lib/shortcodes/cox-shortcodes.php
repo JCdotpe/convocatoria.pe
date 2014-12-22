@@ -19,10 +19,10 @@ function members_only_shortcode( $atts, $content = null )
 {
     if ( is_user_logged_in() && !empty( $content ) && !is_feed() )
     {
-        return $content;
+        return do_shortcode($content);
     }
     
-    return 'Para ver este contenido tienes que identificarte.';
+    return '<p class="members-only">Para ver el link de convocatoria, debes iniciar sesión con:</p>';
 }
 
 

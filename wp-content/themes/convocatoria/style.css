@@ -1927,3 +1927,22 @@ border: 1px solid #777;
 text-align: center; 
 background: #fff;
 }
+
+.oneall_social_login {
+	display: block;
+height: 40px;
+margin: 0 0 20px;
+overflow: hidden;
+position: relative;
+}
+
+.oneall_social_login .oneall_social_login_label {
+	display: none;
+}
+
+.members-only{
+	color: #f15123;
+	font-size: 120%;
+	font-weight: 500;
+	margin-bottom: 8px !important;
+}
